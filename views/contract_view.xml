@@ -1,0 +1,46 @@
+<odoo>
+    <!-- Form View -->
+    <record id="view_contract_form" model="ir.ui.view">
+        <field name="name">contract.form</field>
+        <field name="model">contract.contract</field>
+        <field name="arch" type="xml">
+            <form string="Contract">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="amount"/>
+                        <field name="customer_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- Tree View -->
+    <record id="view_contract_tree" model="ir.ui.view">
+        <field name="name">contract.tree</field>
+        <field name="model">contract.contract</field>
+        <field name="arch" type="xml">
+            <tree string="Contracts">
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="amount"/>
+                <field name="customer_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_contracts" model="ir.actions.act_window">
+        <field name="name">Contrats</field>
+        <field name="res_model">contract.contract</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Items -->
+    <menuitem id="menu_contract_management_root" name="Gestion de contrat"/>
+    <menuitem id="menu_contract_management_main" name="Contrats" parent="menu_contract_management_root" action="action_contracts"/>
+</odoo>
